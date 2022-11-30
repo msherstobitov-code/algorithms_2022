@@ -17,6 +17,7 @@
 
 Примечание: ПРОШУ ВАС ВНИМАТЕЛЬНО ЧИТАТЬ ЗАДАНИЕ!
 """
+
 class QueueClass:
     def __init__(self):
         self.elems = []

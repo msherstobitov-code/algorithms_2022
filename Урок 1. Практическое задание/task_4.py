@@ -48,7 +48,3 @@ def authentication_1(users, user_name, user_password):
         elif users[user_name]['password'] != user_password:
             return 'invalid password!'
     return 'there is no such user'
-
-
-
-

@@ -33,7 +33,3 @@ def min_of_list(list):
         if list[i] < min_elem:  # O(1)
             min_elem = list[i]  # O(1)
     return min_elem  # O(1)
-
-
-
-

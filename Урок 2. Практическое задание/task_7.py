@@ -13,3 +13,18 @@
 
 Решите через рекурсию. В задании нельзя применять циклы.
 """
+
+def left(n):
+    if n <= 1:
+        return n
+    return n + left(n - 1)
+print(left(5))
+
+n = 5
+def right(n):
+    return n * (n + 1) // 2
+if left(n) == right(n):
+    print(f'Для n={n} - True')
+else:
+    print(f'Для n={n} - False')
+

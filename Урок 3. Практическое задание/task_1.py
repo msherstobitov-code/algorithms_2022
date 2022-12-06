@@ -28,3 +28,68 @@ b) получение элемента списка, оцените сложно
 обязательно реализуйте ф-цию-декоратор и пусть она считает время
 И примените ее к своим функциям!
 """
+#####################################################
+
+import time
+def time_of_function(function):
+    def wrapper(*args):
+        start_val = time.time()
+        function(*args)
+        end_val = time.time()
+        time_funk = end_val - start_val
+        return time_funk
+    return wrapper
+
+# Сложность O(n)
+my_list = []
+my_dict = {}
+@time_of_function
+def list_app(i=1):
+    for i in range(i):  # O(n)
+        my_list.append(range(1000, 100000))   #O(1)
+    return my_list   #O(1)
+print('время заполнения списка', list_app(1000000))
+# Сложность O(n)
+@time_of_function
+def dict_app(i=1):
+    for i in range(i):    # O(n)
+        my_dict[i] = (range(1000, 100000))   #O(1)
+    return my_dict    #O(1)
+
+print('время заполнения словаря',dict_app(1000000))
+# Время заполнения списка больше чем словаря.
+######################################################
+
+@time_of_function
+def change_list(lst):
+    for i in range(1000):
+        lst[i] = lst[i + 1] # изменяем 1000 элементов
+change_list(my_list)
+print('время изменения элемента списка', change_list(my_list))
+
+# Сложность O(1)
+@time_of_function
+def change_dict():
+    for i in range(1000, 2001):
+        my_dict[i] = 'dfr'
+print('время изменения элемента словаря', change_dict())
+
+#######################################################
+@time_of_function
+def del_list():
+    for i in range(100): # Cложность О(n)
+        my_list.pop(i)  # удаляем элементы списка
+print('время удаления элемента списка', del_list())
+
+@time_of_function
+def del_dict():
+    for i in range(10000):  # Cложность О(1)
+        my_dict.pop(i)
+print('время удаления элемента словаря', del_dict())
+
+
+
+
+
+
+
